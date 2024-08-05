@@ -1,15 +1,15 @@
 #container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
         "sidebar header header header"
-        "sidebar projects projects projects"
-    ;
+        "sidebar projects projects projects";
 
     #header {
         grid-area: header;
-        
-        .top, .bottom {
+
+        .top,
+        .bottom {
             display: grid;
             grid-template-columns: 2fr 1fr;
         }
@@ -23,11 +23,13 @@
                 grid-template-columns: 50px 1fr;
             }
 
-            .notifications, .user {
+            .notifications,
+            .user {
                 display: inline;
             }
 
-            .user img, .user .name {
+            .user img,
+            .user .name {
                 display: inline;
             }
         }
@@ -36,7 +38,7 @@
             .user {
                 display: grid;
                 grid-template-columns: 1fr 3fr;
-                grid-template-areas: 
+                grid-template-areas:
                     "avatar greeting"
                     "avatar name";
 
@@ -67,7 +69,8 @@
         grid-area: sidebar;
 
         #logo {
-            img, p {
+            img,
+            p {
                 display: inline;
             }
         }
@@ -79,10 +82,59 @@
                     text-decoration: none;
                 }
             }
-        }    
+        }
     }
 
     #projects {
         grid-area: projects;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "projects-container announcements"
+            "projects-container trending";
+
+        .projects-container {
+            grid-area: projects-container;
+
+            .projects {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+                .project {
+                    .actions {
+                        list-style: none;
+                        text-align: right;
+
+                        li {
+                            display: inline;
+                        }
+                    }
+                }
+            }
+        }
+        .announcements {
+            grid-area: announcements;
+        }
+        .trending {
+            grid-area: trending;
+
+            .project {
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+                grid-template-areas:
+                    "avatar name"
+                    "avatar project-name";
+
+                .avatar {
+                    grid-area: avatar;
+                }
+                .name {
+                    grid-area: name;
+                }
+                .project-name {
+                    grid-area: greeting;
+                }
+            }
+        }
     }
 }

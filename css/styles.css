@@ -4,7 +4,8 @@
   grid-template-areas: "sidebar header header header" "sidebar projects projects projects"; }
   #container #header {
     grid-area: header; }
-    #container #header .top, #container #header .bottom {
+    #container #header .top,
+    #container #header .bottom {
       display: grid;
       grid-template-columns: 2fr 1fr; }
     #container #header .top {
@@ -13,9 +14,11 @@
       #container #header .top .search {
         display: grid;
         grid-template-columns: 50px 1fr; }
-      #container #header .top .notifications, #container #header .top .user {
+      #container #header .top .notifications,
+      #container #header .top .user {
         display: inline; }
-      #container #header .top .user img, #container #header .top .user .name {
+      #container #header .top .user img,
+      #container #header .top .user .name {
         display: inline; }
     #container #header .bottom .user {
       display: grid;
@@ -33,13 +36,41 @@
         display: inline; }
   #container #sidebar {
     grid-area: sidebar; }
-    #container #sidebar #logo img, #container #sidebar #logo p {
+    #container #sidebar #logo img,
+    #container #sidebar #logo p {
       display: inline; }
     #container #sidebar ul {
       list-style: none; }
       #container #sidebar ul li a {
         text-decoration: none; }
   #container #projects {
-    grid-area: projects; }
+    grid-area: projects;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "projects-container announcements" "projects-container trending"; }
+    #container #projects .projects-container {
+      grid-area: projects-container; }
+      #container #projects .projects-container .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+        #container #projects .projects-container .projects .project .actions {
+          list-style: none;
+          text-align: right; }
+          #container #projects .projects-container .projects .project .actions li {
+            display: inline; }
+    #container #projects .announcements {
+      grid-area: announcements; }
+    #container #projects .trending {
+      grid-area: trending; }
+      #container #projects .trending .project {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas: "avatar name" "avatar project-name"; }
+        #container #projects .trending .project .avatar {
+          grid-area: avatar; }
+        #container #projects .trending .project .name {
+          grid-area: name; }
+        #container #projects .trending .project .project-name {
+          grid-area: greeting; }
 
 /*# sourceMappingURL=styles.css.map */
