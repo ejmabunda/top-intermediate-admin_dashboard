@@ -33,6 +33,12 @@
         display: inline; }
   #container #sidebar {
     grid-area: sidebar; }
+    #container #sidebar #logo img, #container #sidebar #logo p {
+      display: inline; }
+    #container #sidebar ul {
+      list-style: none; }
+      #container #sidebar ul li a {
+        text-decoration: none; }
   #container #projects {
     grid-area: projects; }
 

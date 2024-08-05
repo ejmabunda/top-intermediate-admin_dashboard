@@ -62,9 +62,26 @@
             }
         }
     }
+
     #sidebar {
         grid-area: sidebar;
+
+        #logo {
+            img, p {
+                display: inline;
+            }
+        }
+        ul {
+            list-style: none;
+
+            li {
+                a {
+                    text-decoration: none;
+                }
+            }
+        }    
     }
+
     #projects {
         grid-area: projects;
     }
