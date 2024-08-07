@@ -8,13 +8,15 @@ body {
     grid-template-areas:
         "sidebar header header header"
         "sidebar projects projects projects";
+    padding: 1rem;
+    background-color: #f7f7f7;
 
     .avatar {
-        width: 50px;
+        width: 40px;
         border-radius: 50%;
     }
     .icon {
-        width: 40px;
+        width: 30px;
     }
 
     #header {
@@ -33,6 +35,23 @@ body {
             .search {
                 display: grid;
                 grid-template-columns: 50px 1fr;
+                border: 1px solid gray;
+                border-radius: 50px;
+                background-color: white;
+
+                label {
+                    display: grid;
+
+                    svg {
+                        place-self: center;
+                    }
+                }
+                input {
+                    border: none;
+                    outline: none;
+                    border-radius: inherit;
+                    background-color: inherit;
+                }
             }
 
             .notifications,

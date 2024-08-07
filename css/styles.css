@@ -4,12 +4,14 @@ body {
 #container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-areas: "sidebar header header header" "sidebar projects projects projects"; }
+  grid-template-areas: "sidebar header header header" "sidebar projects projects projects";
+  padding: 1rem;
+  background-color: #f7f7f7; }
   #container .avatar {
-    width: 50px;
+    width: 40px;
     border-radius: 50%; }
   #container .icon {
-    width: 40px; }
+    width: 30px; }
   #container #header {
     grid-area: header; }
     #container #header .top,
@@ -21,7 +23,19 @@ body {
       grid-template-columns: 2fr 1fr; }
       #container #header .top .search {
         display: grid;
-        grid-template-columns: 50px 1fr; }
+        grid-template-columns: 50px 1fr;
+        border: 1px solid gray;
+        border-radius: 50px;
+        background-color: white; }
+        #container #header .top .search label {
+          display: grid; }
+          #container #header .top .search label svg {
+            place-self: center; }
+        #container #header .top .search input {
+          border: none;
+          outline: none;
+          border-radius: inherit;
+          background-color: inherit; }
       #container #header .top .notifications,
       #container #header .top .user {
         display: inline; }
