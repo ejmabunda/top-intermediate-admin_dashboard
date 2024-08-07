@@ -6,8 +6,10 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas: "sidebar header header header" "sidebar projects projects projects"; }
   #container .avatar {
-    width: 75px;
+    width: 50px;
     border-radius: 50%; }
+  #container .icon {
+    width: 40px; }
   #container #header {
     grid-area: header; }
     #container #header .top,
