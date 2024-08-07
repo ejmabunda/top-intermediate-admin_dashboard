@@ -23,5 +23,5 @@ cd top-intermediate-admin_dashboard
 ```
 Open `index.html` in your web browser to view the dashboard.
 
-Acknowledgements
+# Acknowledgements
 This project is part of The Odin Project curriculum. Special thanks to the community and contributors for their support and resources.

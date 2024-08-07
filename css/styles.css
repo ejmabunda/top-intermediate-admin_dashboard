@@ -231,6 +231,10 @@ body {
   #container footer {
     margin-top: 3rem;
     grid-area: footer;
-    text-align: center; }
+    text-align: center;
+    font-size: .8rem; }
+    #container footer a {
+      color: black;
+      font-weight: bold; }
 
 /*# sourceMappingURL=styles.css.map */
