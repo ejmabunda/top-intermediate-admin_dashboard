@@ -1,9 +1,18 @@
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
 #container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
         "sidebar header header header"
         "sidebar projects projects projects";
+
+    .avatar {
+        width: 75px;
+        border-radius: 50%;
+    }
 
     #header {
         grid-area: header;

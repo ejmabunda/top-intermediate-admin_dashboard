@@ -4,3 +4,6 @@ img/design/
 # Ignore SASS temp files
 .sass-cache
 *.css.map
+
+# Ignore Python virtual environment
+venv/
