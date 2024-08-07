@@ -1,5 +1,6 @@
 body {
-  font-family: "Montserrat", sans-serif; }
+  font-family: "Montserrat", sans-serif;
+  color: #1e293b; }
   body p,
   body h1,
   body h2,
@@ -14,8 +15,8 @@ body {
   display: grid;
   grid-template-columns: 220px repeat(4, 1fr);
   grid-template-areas: "sidebar header header header header" "sidebar projects projects projects projects";
-  padding: 1rem;
-  background-color: #fff7ed; }
+  padding: 2rem;
+  background-color: #f8fafc; }
   #container .avatar {
     width: 40px;
     border-radius: 50%; }
@@ -37,7 +38,8 @@ body {
         grid-template-columns: 50px 1fr;
         border-radius: 50px;
         background-color: white;
-        border: 1px solid #ccc; }
+        border: 1px solid #e2e8f0;
+        padding-right: 1rem; }
         #container #header .top .search label {
           display: grid; }
           #container #header .top .search label svg {
@@ -58,7 +60,9 @@ body {
           justify-self: end;
           grid-template-columns: 1fr auto;
           align-items: center;
-          gap: 1rem; }
+          gap: 1rem;
+          font-size: 0.9rem;
+          font-weight: bold; }
       #container #header .top .user img,
       #container #header .top .user .name {
         display: inline; }
@@ -74,41 +78,57 @@ body {
           width: 60px; }
         #container #header .bottom .user .greeting {
           grid-area: greeting;
-          align-self: end; }
+          align-self: end;
+          font-size: 1rem; }
         #container #header .bottom .user .name {
-          grid-area: name; }
+          grid-area: name;
+          font-size: 1rem; }
       #container #header .bottom .actions ul {
         text-align: right;
         list-style: none; }
         #container #header .bottom .actions ul li {
-          display: inline;
-          padding: 0.5rem 1rem;
-          border: 1px solid gray;
-          border-radius: 50px;
+          display: inline-block;
+          border-radius: 10px;
           margin-left: 0.5rem;
-          color: white;
-          background-color: black;
+          color: #1e293b;
           font-size: small;
+          padding: 0.5rem 0;
           font-weight: bold; }
           #container #header .bottom .actions ul li a {
+            border: 1px solid #1e293b;
             text-decoration: none;
-            color: inherit; }
+            color: inherit;
+            padding: 0.5rem 1rem;
+            border-radius: inherit; }
+          #container #header .bottom .actions ul li a:hover {
+            color: white;
+            background-color: #1e293b; }
   #container #sidebar {
     grid-area: sidebar; }
-    #container #sidebar #logo {
+    #container #sidebar #logo a:hover {
+      color: #713f12; }
+      #container #sidebar #logo a:hover svg {
+        fill: #713f12; }
+    #container #sidebar #logo a {
       display: grid;
       grid-template-columns: 25px 1fr;
       gap: 1rem;
       align-items: center;
-      margin-bottom: 2rem; }
-      #container #sidebar #logo svg {
+      margin-bottom: 2rem;
+      text-decoration: none;
+      color: #1e293b; }
+      #container #sidebar #logo a svg {
         width: 25px; }
-      #container #sidebar #logo p {
+      #container #sidebar #logo a p {
         display: inline;
         font-weight: bold; }
     #container #sidebar ul {
       list-style: none;
       margin-bottom: 2rem; }
+      #container #sidebar ul li a:hover {
+        color: #713f12; }
+        #container #sidebar ul li a:hover svg {
+          fill: #713f12; }
       #container #sidebar ul li a {
         text-decoration: none;
         color: black;
@@ -125,21 +145,21 @@ body {
     grid-template-areas: "projects-container announcements" "projects-container trending" "projects-container .";
     background-color: white;
     border-radius: 10px;
-    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    padding: 2rem;
     gap: 1rem; }
     #container #projects .projects-container .projects .project,
     #container #projects .announcements,
     #container #projects .trending {
-      background-color: #fff7ed;
       border-radius: 10px;
       padding: 1rem;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; }
+      border: 1px solid #e2e8f0; }
     #container #projects .projects-container {
       grid-area: projects-container; }
       #container #projects .projects-container h2 {
         font-size: 1.2rem; }
       #container #projects .projects-container .projects {
-        margin-top: 1rem;
+        margin-top: 2rem;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 1rem; }
@@ -150,7 +170,12 @@ body {
           font-size: 1rem; }
         #container #projects .projects-container .projects .project p {
           margin: 1rem 0;
-          font-size: 0.9rem; }
+          font-size: 0.9rem;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 6;
+          overflow: hidden;
+          line-height: 1.5; }
         #container #projects .projects-container .projects .project .actions {
           list-style: none;
           text-align: right; }
@@ -158,22 +183,36 @@ body {
             display: inline; }
     #container #projects #announcements {
       grid-area: announcements; }
-      #container #projects #announcements .announcements h2 {
+      #container #projects #announcements h2 {
         font-size: 1.2rem;
-        margin-bottom: 1rem; }
+        margin-bottom: 2rem; }
+      #container #projects #announcements .announcements .announcement:hover {
+        cursor: pointer;
+        color: #713f12; }
       #container #projects #announcements .announcements .announcement {
         font-size: 0.9rem;
         margin-bottom: 1rem; }
+        #container #projects #announcements .announcements .announcement h3 {
+          font-size: 0.9rem;
+          margin-bottom: 0.5rem;
+          line-height: 1.5; }
         #container #projects #announcements .announcements .announcement p {
           display: -webkit-box;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 3;
-          overflow: hidden; }
-    #container #projects .trending {
+          overflow: hidden;
+          line-height: 1.4; }
+    #container #projects #trending {
       grid-area: trending; }
-      #container #projects .trending h2 {
-        font-size: 1.2rem; }
-      #container #projects .trending .trending-project {
+      #container #projects #trending h2 {
+        font-size: 1.2rem;
+        margin: 2rem 0; }
+      #container #projects #trending .trending-project:hover {
+        cursor: pointer;
+        color: #713f12; }
+      #container #projects #trending .trending-project:first-of-type {
+        margin: 0; }
+      #container #projects #trending .trending-project {
         display: grid;
         grid-template-columns: 40px 1fr;
         grid-template-areas: "avatar name" "avatar project-name";
@@ -181,13 +220,13 @@ body {
         column-gap: 0.5rem;
         font-size: 0.8rem;
         margin-top: 1rem; }
-        #container #projects .trending .trending-project .avatar {
+        #container #projects #trending .trending-project .avatar {
           grid-area: avatar; }
-        #container #projects .trending .trending-project .name {
+        #container #projects #trending .trending-project .name {
           grid-area: name;
           align-self: end;
           font-weight: bold; }
-        #container #projects .trending .trending-project .project-name {
+        #container #projects #trending .trending-project .project-name {
           grid-area: project-name; }
 
 /*# sourceMappingURL=styles.css.map */

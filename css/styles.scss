@@ -1,9 +1,13 @@
 $icon-width: 25px;
 $avatar-width: 40px;
-$bg: #fff7ed;
+$bg: #f8fafc;
+$border: #e2e8f0;
+$text: #1e293b;
+$text-accent: #713f12;
 
 body {
     font-family: "Montserrat", sans-serif;
+    color: $text;
 
     p,
     h1,
@@ -23,7 +27,7 @@ body {
     grid-template-areas:
         "sidebar header header header header"
         "sidebar projects projects projects projects";
-    padding: 1rem;
+    padding: 2rem;
     background-color: $bg;
 
     .avatar {
@@ -54,7 +58,8 @@ body {
                 grid-template-columns: 50px 1fr;
                 border-radius: 50px;
                 background-color: white;
-                border: 1px solid #ccc;
+                border: 1px solid $border;
+                padding-right: 1rem;
 
                 label {
                     display: grid;
@@ -84,6 +89,8 @@ body {
                     grid-template-columns: 1fr auto;
                     align-items: center;
                     gap: 1rem;
+                    font-size: 0.9rem;
+                    font-weight: bold;
                 }
             }
 
@@ -111,9 +118,11 @@ body {
                 .greeting {
                     grid-area: greeting;
                     align-self: end;
+                    font-size: 1rem;
                 }
                 .name {
                     grid-area: name;
+                    font-size: 1rem;
                 }
             }
 
@@ -123,19 +132,24 @@ body {
                     list-style: none;
 
                     li {
-                        display: inline;
-                        padding: 0.5rem 1rem;
-                        border: 1px solid gray;
-                        border-radius: 50px;
+                        display: inline-block;
+                        border-radius: 10px;
                         margin-left: 0.5rem;
-                        color: white;
-                        background-color: black;
+                        color: $text;
                         font-size: small;
+                        padding: 0.5rem 0;
                         font-weight: bold;
 
                         a {
+                            border: 1px solid $text;
                             text-decoration: none;
                             color: inherit;
+                            padding: 0.5rem 1rem;
+                            border-radius: inherit;
+                        }
+                        a:hover {
+                            color: white;
+                            background-color: $text;
                         }
                     }
                 }
@@ -147,18 +161,29 @@ body {
         grid-area: sidebar;
 
         #logo {
-            display: grid;
-            grid-template-columns: $icon-width 1fr;
-            gap: 1rem;
-            align-items: center;
-            margin-bottom: 2rem;
+            a:hover {
+                color: $text-accent;
 
-            svg {
-                width: $icon-width;
+                svg {
+                    fill: $text-accent;
+                }
             }
-            p {
-                display: inline;
-                font-weight: bold;
+            a {
+                display: grid;
+                grid-template-columns: $icon-width 1fr;
+                gap: 1rem;
+                align-items: center;
+                margin-bottom: 2rem;
+                text-decoration: none;
+                color: $text;
+
+                svg {
+                    width: $icon-width;
+                }
+                p {
+                    display: inline;
+                    font-weight: bold;
+                }
             }
         }
         ul {
@@ -166,6 +191,13 @@ body {
             margin-bottom: 2rem;
 
             li {
+                a:hover {
+                    color: $text-accent;
+
+                    svg {
+                        fill: #713f12;
+                    }
+                }
                 a {
                     text-decoration: none;
                     color: black;
@@ -190,16 +222,16 @@ body {
             "projects-container .";
         background-color: white;
         border-radius: 10px;
-        padding: 1rem;
+        border: 1px solid $border;
+        padding: 2rem;
         gap: 1rem;
 
         .projects-container .projects .project,
         .announcements,
         .trending {
-            background-color: $bg;
             border-radius: 10px;
             padding: 1rem;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            border: 1px solid $border;
         }
 
         .projects-container {
@@ -210,7 +242,7 @@ body {
             }
 
             .projects {
-                margin-top: 1rem;
+                margin-top: 2rem;
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
                 gap: 1rem;
@@ -227,6 +259,11 @@ body {
                     p {
                         margin: 1rem 0;
                         font-size: 0.9rem;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 6;
+                        overflow: hidden;
+                        line-height: 1.5;
                     }
 
                     .actions {
@@ -242,31 +279,50 @@ body {
         }
         #announcements {
             grid-area: announcements;
+            h2 {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+            }
 
             .announcements {
-                h2 {
-                    font-size: 1.2rem;
-                    margin-bottom: 1rem;
+                .announcement:hover {
+                    cursor: pointer;
+                    color: $text-accent;
                 }
-
                 .announcement {
                     font-size: 0.9rem;
                     margin-bottom: 1rem;
+
+                    h3 {
+                        font-size: 0.9rem;
+                        margin-bottom: 0.5rem;
+                        line-height: 1.5;
+                    }
 
                     p {
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
                         -webkit-line-clamp: 3;
                         overflow: hidden;
+                        line-height: 1.4;
                     }
                 }
             }
         }
-        .trending {
+        #trending {
             grid-area: trending;
 
             h2 {
                 font-size: 1.2rem;
+                margin: 2rem 0;
+            }
+
+            .trending-project:hover {
+                cursor: pointer;
+                color: $text-accent;
+            }
+            .trending-project:first-of-type {
+                margin: 0;
             }
             .trending-project {
                 display: grid;
