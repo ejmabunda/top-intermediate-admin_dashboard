@@ -12,11 +12,12 @@ The Admin Dashboard project aims to provide hands-on experience with responsive 
 - CSS (Grid and Flexbox)
 
 # Usage
-You can view the live preview, or to run to run it locally, clone the repository:
+You can view the [live preview](https://ejmabunda.github.io/top-intermediate-admin_dashboard/), or to run to run it locally, clone the repository:
 ```sh
 git clone https://github.com/ejmabunda/top-intermediate-admin_dashboard.git
-Navigate to the project directory:
 ```
+
+Navigate to the project directory:
 ```sh
 cd top-intermediate-admin_dashboard
 ```

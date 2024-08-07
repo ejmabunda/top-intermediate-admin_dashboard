@@ -14,7 +14,7 @@ body {
 #container {
   display: grid;
   grid-template-columns: 220px repeat(4, 1fr);
-  grid-template-areas: "sidebar header header header header" "sidebar projects projects projects projects";
+  grid-template-areas: "sidebar header header header header" "sidebar projects projects projects projects" ". footer footer footer footer";
   padding: 2rem;
   background-color: #f8fafc; }
   #container .avatar {
@@ -228,5 +228,9 @@ body {
           font-weight: bold; }
         #container #projects #trending .trending-project .project-name {
           grid-area: project-name; }
+  #container footer {
+    margin-top: 3rem;
+    grid-area: footer;
+    text-align: center; }
 
 /*# sourceMappingURL=styles.css.map */

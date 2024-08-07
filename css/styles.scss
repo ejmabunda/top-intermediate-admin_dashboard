@@ -26,7 +26,8 @@ body {
     grid-template-columns: 220px repeat(4, 1fr);
     grid-template-areas:
         "sidebar header header header header"
-        "sidebar projects projects projects projects";
+        "sidebar projects projects projects projects"
+        ". footer footer footer footer";
     padding: 2rem;
     background-color: $bg;
 
@@ -349,5 +350,11 @@ body {
                 }
             }
         }
+    }
+
+    footer {
+        margin-top: 3rem;
+        grid-area: footer;
+        text-align: center;
     }
 }
