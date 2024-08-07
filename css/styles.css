@@ -1,32 +1,43 @@
 body {
   font-family: "Montserrat", sans-serif; }
+  body p,
+  body h1,
+  body h2,
+  body h3,
+  body h4,
+  body h5,
+  body h6,
+  body ul {
+    margin: 0; }
 
 #container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas: "sidebar header header header" "sidebar projects projects projects";
+  grid-template-columns: 220px repeat(4, 1fr);
+  grid-template-areas: "sidebar header header header header" "sidebar projects projects projects projects";
   padding: 1rem;
-  background-color: #f7f7f7; }
+  background-color: #fff7ed; }
   #container .avatar {
     width: 40px;
     border-radius: 50%; }
   #container .icon {
-    width: 30px; }
+    width: 25px; }
   #container #header {
-    grid-area: header; }
+    grid-area: header;
+    margin-bottom: 2rem; }
     #container #header .top,
     #container #header .bottom {
       display: grid;
       grid-template-columns: 2fr 1fr; }
     #container #header .top {
       display: grid;
-      grid-template-columns: 2fr 1fr; }
+      grid-template-columns: 2fr 1fr;
+      margin-bottom: 2rem; }
       #container #header .top .search {
         display: grid;
         grid-template-columns: 50px 1fr;
-        border: 1px solid gray;
         border-radius: 50px;
-        background-color: white; }
+        background-color: white;
+        border: 1px solid #ccc; }
         #container #header .top .search label {
           display: grid; }
           #container #header .top .search label svg {
@@ -36,63 +47,147 @@ body {
           outline: none;
           border-radius: inherit;
           background-color: inherit; }
-      #container #header .top .notifications,
-      #container #header .top .user {
-        display: inline; }
+      #container #header .top .utility {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 1rem; }
+        #container #header .top .utility .notifications,
+        #container #header .top .utility .user {
+          display: inline-grid;
+          justify-self: end;
+          grid-template-columns: 1fr auto;
+          align-items: center;
+          gap: 1rem; }
       #container #header .top .user img,
       #container #header .top .user .name {
         display: inline; }
-    #container #header .bottom .user {
-      display: grid;
-      grid-template-columns: 1fr 3fr;
-      grid-template-areas: "avatar greeting" "avatar name"; }
-      #container #header .bottom .user .avatar {
-        grid-area: avatar; }
-      #container #header .bottom .user .greeting {
-        grid-area: greeting; }
-      #container #header .bottom .user .name {
-        grid-area: name; }
-    #container #header .bottom .actions ul {
-      list-style: none; }
-      #container #header .bottom .actions ul li {
-        display: inline; }
+    #container #header .bottom {
+      align-items: center; }
+      #container #header .bottom .user {
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        gap: 0.5rem;
+        grid-template-areas: "avatar greeting" "avatar name"; }
+        #container #header .bottom .user .avatar {
+          grid-area: avatar;
+          width: 60px; }
+        #container #header .bottom .user .greeting {
+          grid-area: greeting;
+          align-self: end; }
+        #container #header .bottom .user .name {
+          grid-area: name; }
+      #container #header .bottom .actions ul {
+        text-align: right;
+        list-style: none; }
+        #container #header .bottom .actions ul li {
+          display: inline;
+          padding: 0.5rem 1rem;
+          border: 1px solid gray;
+          border-radius: 50px;
+          margin-left: 0.5rem;
+          color: white;
+          background-color: black;
+          font-size: small;
+          font-weight: bold; }
+          #container #header .bottom .actions ul li a {
+            text-decoration: none;
+            color: inherit; }
   #container #sidebar {
     grid-area: sidebar; }
-    #container #sidebar #logo img,
-    #container #sidebar #logo p {
-      display: inline; }
+    #container #sidebar #logo {
+      display: grid;
+      grid-template-columns: 25px 1fr;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 2rem; }
+      #container #sidebar #logo svg {
+        width: 25px; }
+      #container #sidebar #logo p {
+        display: inline;
+        font-weight: bold; }
     #container #sidebar ul {
-      list-style: none; }
+      list-style: none;
+      margin-bottom: 2rem; }
       #container #sidebar ul li a {
-        text-decoration: none; }
+        text-decoration: none;
+        color: black;
+        display: grid;
+        grid-template-columns: 25px 1fr;
+        align-items: center;
+        gap: 1rem;
+        font-weight: bold;
+        font-size: small; }
   #container #projects {
     grid-area: projects;
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-areas: "projects-container announcements" "projects-container trending"; }
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: "projects-container announcements" "projects-container trending" "projects-container .";
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    gap: 1rem; }
+    #container #projects .projects-container .projects .project,
+    #container #projects .announcements,
+    #container #projects .trending {
+      background-color: #fff7ed;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; }
     #container #projects .projects-container {
       grid-area: projects-container; }
+      #container #projects .projects-container h2 {
+        font-size: 1.2rem; }
       #container #projects .projects-container .projects {
+        margin-top: 1rem;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem; }
+        #container #projects .projects-container .projects .project:hover {
+          cursor: pointer;
+          border: 1px solid gray; }
+        #container #projects .projects-container .projects .project h3 {
+          font-size: 1rem; }
+        #container #projects .projects-container .projects .project p {
+          margin: 1rem 0;
+          font-size: 0.9rem; }
         #container #projects .projects-container .projects .project .actions {
           list-style: none;
           text-align: right; }
           #container #projects .projects-container .projects .project .actions li {
             display: inline; }
-    #container #projects .announcements {
+    #container #projects #announcements {
       grid-area: announcements; }
+      #container #projects #announcements .announcements h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem; }
+      #container #projects #announcements .announcements .announcement {
+        font-size: 0.9rem;
+        margin-bottom: 1rem; }
+        #container #projects #announcements .announcements .announcement p {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          overflow: hidden; }
     #container #projects .trending {
       grid-area: trending; }
-      #container #projects .trending .project {
+      #container #projects .trending h2 {
+        font-size: 1.2rem; }
+      #container #projects .trending .trending-project {
         display: grid;
-        grid-template-columns: 1fr 3fr;
-        grid-template-areas: "avatar name" "avatar project-name"; }
-        #container #projects .trending .project .avatar {
+        grid-template-columns: 40px 1fr;
+        grid-template-areas: "avatar name" "avatar project-name";
+        align-items: center;
+        column-gap: 0.5rem;
+        font-size: 0.8rem;
+        margin-top: 1rem; }
+        #container #projects .trending .trending-project .avatar {
           grid-area: avatar; }
-        #container #projects .trending .project .name {
-          grid-area: name; }
-        #container #projects .trending .project .project-name {
-          grid-area: greeting; }
+        #container #projects .trending .trending-project .name {
+          grid-area: name;
+          align-self: end;
+          font-weight: bold; }
+        #container #projects .trending .trending-project .project-name {
+          grid-area: project-name; }
 
 /*# sourceMappingURL=styles.css.map */

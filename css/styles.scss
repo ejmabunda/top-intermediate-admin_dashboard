@@ -1,26 +1,42 @@
+$icon-width: 25px;
+$avatar-width: 40px;
+$bg: #fff7ed;
+
 body {
     font-family: "Montserrat", sans-serif;
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    ul {
+        margin: 0;
+    }
 }
 
 #container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 220px repeat(4, 1fr);
     grid-template-areas:
-        "sidebar header header header"
-        "sidebar projects projects projects";
+        "sidebar header header header header"
+        "sidebar projects projects projects projects";
     padding: 1rem;
-    background-color: #f7f7f7;
+    background-color: $bg;
 
     .avatar {
-        width: 40px;
+        width: $avatar-width;
         border-radius: 50%;
     }
     .icon {
-        width: 30px;
+        width: $icon-width;
     }
 
     #header {
         grid-area: header;
+        margin-bottom: 2rem;
 
         .top,
         .bottom {
@@ -31,13 +47,14 @@ body {
         .top {
             display: grid;
             grid-template-columns: 2fr 1fr;
+            margin-bottom: 2rem;
 
             .search {
                 display: grid;
                 grid-template-columns: 50px 1fr;
-                border: 1px solid gray;
                 border-radius: 50px;
                 background-color: white;
+                border: 1px solid #ccc;
 
                 label {
                     display: grid;
@@ -54,9 +71,20 @@ body {
                 }
             }
 
-            .notifications,
-            .user {
-                display: inline;
+            .utility {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                align-items: center;
+                gap: 1rem;
+
+                .notifications,
+                .user {
+                    display: inline-grid;
+                    justify-self: end;
+                    grid-template-columns: 1fr auto;
+                    align-items: center;
+                    gap: 1rem;
+                }
             }
 
             .user img,
@@ -66,18 +94,23 @@ body {
         }
 
         .bottom {
+            align-items: center;
+
             .user {
                 display: grid;
-                grid-template-columns: 1fr 3fr;
+                grid-template-columns: 60px 1fr;
+                gap: 0.5rem;
                 grid-template-areas:
                     "avatar greeting"
                     "avatar name";
 
                 .avatar {
                     grid-area: avatar;
+                    width: 60px;
                 }
                 .greeting {
                     grid-area: greeting;
+                    align-self: end;
                 }
                 .name {
                     grid-area: name;
@@ -86,10 +119,24 @@ body {
 
             .actions {
                 ul {
+                    text-align: right;
                     list-style: none;
 
                     li {
                         display: inline;
+                        padding: 0.5rem 1rem;
+                        border: 1px solid gray;
+                        border-radius: 50px;
+                        margin-left: 0.5rem;
+                        color: white;
+                        background-color: black;
+                        font-size: small;
+                        font-weight: bold;
+
+                        a {
+                            text-decoration: none;
+                            color: inherit;
+                        }
                     }
                 }
             }
@@ -100,17 +147,34 @@ body {
         grid-area: sidebar;
 
         #logo {
-            img,
+            display: grid;
+            grid-template-columns: $icon-width 1fr;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 2rem;
+
+            svg {
+                width: $icon-width;
+            }
             p {
                 display: inline;
+                font-weight: bold;
             }
         }
         ul {
             list-style: none;
+            margin-bottom: 2rem;
 
             li {
                 a {
                     text-decoration: none;
+                    color: black;
+                    display: grid;
+                    grid-template-columns: $icon-width 1fr;
+                    align-items: center;
+                    gap: 1rem;
+                    font-weight: bold;
+                    font-size: small;
                 }
             }
         }
@@ -119,19 +183,52 @@ body {
     #projects {
         grid-area: projects;
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 3fr 1fr;
         grid-template-areas:
             "projects-container announcements"
-            "projects-container trending";
+            "projects-container trending"
+            "projects-container .";
+        background-color: white;
+        border-radius: 10px;
+        padding: 1rem;
+        gap: 1rem;
+
+        .projects-container .projects .project,
+        .announcements,
+        .trending {
+            background-color: $bg;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
 
         .projects-container {
             grid-area: projects-container;
 
+            h2 {
+                font-size: 1.2rem;
+            }
+
             .projects {
+                margin-top: 1rem;
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
 
+                .project:hover {
+                    cursor: pointer;
+                    border: 1px solid gray;
+                }
                 .project {
+                    h3 {
+                        font-size: 1rem;
+                    }
+
+                    p {
+                        margin: 1rem 0;
+                        font-size: 0.9rem;
+                    }
+
                     .actions {
                         list-style: none;
                         text-align: right;
@@ -143,27 +240,56 @@ body {
                 }
             }
         }
-        .announcements {
+        #announcements {
             grid-area: announcements;
+
+            .announcements {
+                h2 {
+                    font-size: 1.2rem;
+                    margin-bottom: 1rem;
+                }
+
+                .announcement {
+                    font-size: 0.9rem;
+                    margin-bottom: 1rem;
+
+                    p {
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 3;
+                        overflow: hidden;
+                    }
+                }
+            }
         }
         .trending {
             grid-area: trending;
 
-            .project {
+            h2 {
+                font-size: 1.2rem;
+            }
+            .trending-project {
                 display: grid;
-                grid-template-columns: 1fr 3fr;
+                grid-template-columns: $avatar-width 1fr;
                 grid-template-areas:
                     "avatar name"
                     "avatar project-name";
+                align-items: center;
+                column-gap: 0.5rem;
+                font-size: 0.8rem;
+                margin-top: 1rem;
 
                 .avatar {
                     grid-area: avatar;
                 }
+
                 .name {
                     grid-area: name;
+                    align-self: end;
+                    font-weight: bold;
                 }
                 .project-name {
-                    grid-area: greeting;
+                    grid-area: project-name;
                 }
             }
         }
